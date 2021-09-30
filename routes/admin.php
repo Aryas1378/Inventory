@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Admin\TechnicalManagerController;
 use App\Http\Controllers\Admin\UserProductController;
+use App\Models\Borrow;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -146,5 +147,13 @@ Route::prefix('/admin')->middleware('auth:sanctum')->group(function () {
     Route::patch('manager/submit/borrows/{borrow}', [ManagerController::class, 'submitBorrow'])
         ->middleware('can:update,borrow')
         ->name('admin.technical-manager.submitBorrow');
+
+    Route::get('manager/products/{product}/borrows', [ManagerController::class, 'showBorrows'])
+        ->middleware('can:viewAny,' . Borrow::class)
+        ->name('manager.products-borrows.index');
+
+    Route::get('technical-manager/products/{product}/borrows', [TechnicalManagerController::class, 'showBorrows'])
+        ->middleware('can:viewAny,' . Borrow::class)
+        ->name('manager.products-borrows.index');
 
 });

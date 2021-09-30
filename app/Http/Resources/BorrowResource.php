@@ -21,6 +21,8 @@ class BorrowResource extends JsonResource
             'from_date' => $this->from_date,
             'to_date' => $this->to_date,
             'supervisor_permission' => $this->supervisor_permission,
+            'technical_permission' => $this->technical_manager_permission,
+            'manager_permission' => $this->manager_permission,
         ];
     }
 }

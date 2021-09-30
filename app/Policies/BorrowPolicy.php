@@ -18,7 +18,7 @@ class BorrowPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasRole('staff');
+        return $user->hasRole('staff') or $user->hasRole('technical_manager') or $user->hasRole('manager');
     }
 
     /**
@@ -53,7 +53,7 @@ class BorrowPolicy
      */
     public function update(User $user, Borrow $borrow)
     {
-        return $user->hasRole('staff') or $user->hasRole('technical_manager') || $user->hasRole('manager');
+        return $user->hasRole('staff') or $user->hasRole('technical_manager') or $user->hasRole('manager');
     }
 
     /**

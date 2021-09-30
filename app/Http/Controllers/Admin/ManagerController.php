@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ManangerSubmitBorrowRequest;
 use App\Http\Requests\TechnicalManagerSubmitBorrowRequest;
+use App\Http\Resources\BorrowResource;
 use App\Models\Borrow;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -21,6 +23,12 @@ class ManagerController extends Controller
             return $this->success("permission was saved");
         }
         return $this->error("permission was submitted before by manager");
+    }
+
+    public function showBorrows(Product $product)
+    {
+        $borrows = Borrow::query()->where('product_id', $product->id)->get();
+        return $this->success(BorrowResource::collection($borrows));
     }
 
 }

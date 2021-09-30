@@ -40,7 +40,6 @@ class AuthServiceProvider extends ServiceProvider
         UserProduct::class => UserProductPolicy::class,
         Borrow::class => BorrowPolicy::class,
         User::class => UserPolicy::class,
-        TechnicalManager::class => TechnicalManagerPolicy::class,
     ];
 
     /**
