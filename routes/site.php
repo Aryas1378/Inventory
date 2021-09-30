@@ -9,15 +9,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->middleware('auth:sanctum')->group(function () {
 
-    /**
-     * /products
-     * /products/{id}
-     *
-     * /products/{id}/borrows
-     * /products/{id}/borrows/{id1}
-     *
-     * /products/{product}/borrows/{borrow}/
-     */
 
     Route::get('borrows', [BorrowController::class, 'index'])
         ->middleware('can:viewAny,' . Borrow::class)
