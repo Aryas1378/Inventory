@@ -18,7 +18,7 @@ Route::prefix('/')->middleware('auth:sanctum')->group(function () {
         ->middleware('can:view,borrow')
         ->name('profile.borrows.index');
 
-    Route::post('products/{product}/borrows', [BorrowController::class, 'store'])
+    Route::post('borrows', [BorrowController::class, 'store'])
         ->middleware('can:create,' . Borrow::class)
         ->name('profile.borrows.store');
 

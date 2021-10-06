@@ -24,11 +24,8 @@ class BorrowUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required',
             'product_id' => 'required',
-            'from_date' => 'required',
             'to_date' => 'required',
-            'supervisor_permission' => 'required',
         ];
     }
 }

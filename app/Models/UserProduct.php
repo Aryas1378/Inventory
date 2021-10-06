@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\True_;
 
 class UserProduct extends Model
 {
@@ -33,6 +34,14 @@ class UserProduct extends Model
     public function status()
     {
         return $this->belongsTo(Status::class, 'status_id');
+    }
+
+    public static function isAvailable($user_id, $product_id)
+    {
+        if (UserProduct::query()->where(['user_id' => $user_id], ['product_id' => $product_id])->count()){
+            return true;
+        }
+        return false;
     }
 
 }

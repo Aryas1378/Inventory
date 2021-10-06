@@ -40,4 +40,13 @@ class Product extends Model
         return $this->belongsToMany(User::class, 'user_product');
     }
 
+    public static function isAvailable($id)
+    {
+        $product = Product::query()->where('id', $id)->get();
+        if ($product->status_id == Product::available){
+            return true;
+        }
+        return false;
+    }
+
 }

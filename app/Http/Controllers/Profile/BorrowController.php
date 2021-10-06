@@ -10,35 +10,38 @@ use App\Models\Borrow;
 use App\Models\Log;
 use App\Models\Product;
 use App\Models\UserProduct;
+use Carbon\Carbon;
 
 class BorrowController extends Controller
 {
 
     public function index()
     {
-        $borrows = Borrow::query()->with('product', 'user')->get();
+        $borrows = Borrow::query()->where('id', auth()->id())->with('product')->get();
         return $this->success(BorrowResource::collection($borrows));
     }
 
     public function show(Borrow $borrow)
     {
-        $borrow = $borrow->load('product', 'user');
+        $borrow = $borrow->load('product');
         return $this->success(new BorrowResource($borrow));
     }
 
-    public function store(BorrowStoreRequest $request, Product $product)
+    public function store(BorrowStoreRequest $request)
     {
 
-        if ($request->get('is_public') == 'yes' and $product->status_id == Product::available) {
+        if ($request->get('is_public') == 'yes' and Product::isAvailable($request->get('product_id'))) {
             $borrow = Borrow::query()->create([
-                'user_id' => $request->get('user_id'),
-                'product_id' => $product->id,
-                'from_date' => $request->get('from_date'),
+                'user_id' => auth()->id(),
+                'product_id' => $request->get('product_id'),
+                'from_date' => Carbon::now(),
                 'to_date' => $request->get('to_date'),
-                'supervisor_permission' => $request->get('supervisor_permission'),
             ]);
 
-            $product->update(array('status_id' => Product::loaned));
+            Product::query()->find($request->get('product_id'))->update(
+                array(
+                    'status_id' => Product::loaned
+                ));
 
             Log::query()->create([
                 'user_id' => auth()->id(),
@@ -46,13 +49,12 @@ class BorrowController extends Controller
                 'description' => 'a borrow is stored'
             ]);
 
-        } elseif (UserProduct::query()->where(['user_id' => auth()->id()], ['product_id' => $product->id])->count()) {
+        } elseif (UserProduct::isAvailable(auth()->id(), $request->get('product_id'))) {
             $borrow = Borrow::query()->create([
-                'user_id' => $request->get('user_id'),
+                'user_id' => auth()->id(),
                 'product_id' => $request->get('product_id'),
-                'from_date' => $request->get('from_date'),
+                'from_date' => Carbon::now(),
                 'to_date' => $request->get('to_date'),
-                'supervisor_permission' => $request->get('supervisor_permission'),
             ]);
             Log::query()->create([
                 'user_id' => auth()->id(),
@@ -69,36 +71,41 @@ class BorrowController extends Controller
 
     public function update(BorrowUpdateRequest $request, Borrow $borrow)
     {
-        $borrow = $borrow->update([
-            'user_id' => $request->get('user_id'),
-            'product_id' => $request->get('product_id'),
-            'from_date' => $request->get('from_date'),
-            'to_date' => $request->get('to_date'),
-            'supervisor_permission' => $request->get('supervisor_permission'),
-        ]);
+        if (!$borrow->supervisore_permission) {
+            $borrow = $borrow->update([
+                'user_id' => auth()->id(),
+                'product_id' => $request->get('product_id'),
+                'from_date' => Carbon::now(),
+                'to_date' => $request->get('to_date'),
+            ]);
+            Log::query()->create([
+                'user_id' => auth()->id(),
+                'action' => 'update',
+                'description' => 'a borrow is updated'
+            ]);
+            return $this->success(new BorrowResource($borrow));
+        }
 
-        Log::query()->create([
-            'user_id' => auth()->id(),
-            'action' => 'update',
-            'description' => 'a borrow is updated'
-        ]);
+        return $this->error('You are not able to update');
 
-        return $this->success(new BorrowResource($borrow));
     }
 
     public function destroy(Borrow $borrow)
     {
-        $borrow->delete();
 
-        Log::query()->create([
-            'user_id' => auth()->id(),
-            'action' => 'destroy',
-            'description' => 'a borrow is deleted'
-        ]);
+        if (!$borrow->supervisore_permission){
+            $borrow->delete();
+            Log::query()->create([
+                'user_id' => auth()->id(),
+                'action' => 'destroy',
+                'description' => 'a borrow is deleted'
+            ]);
 
-        $borrow->product()->status_id = 1;
+            $borrow->product()->status_id = 1;
 
-        return $this->success("borrow is deleted");
+            return $this->success("borrow is deleted");
+        }
+        return $this->error('not able to delete');
     }
 
 }
