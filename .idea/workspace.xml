@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cdd3268-6f02-4f33-896c-5028389970b3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inventory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inventory.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Profile/BorrowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Profile/BorrowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/BorrowStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/BorrowStoreRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/BorrowUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/BorrowUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/25/8f/258fe6320048b2937f4893b180f5b89dddba99a5" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/25/8f/258fe6320048b2937f4893b180f5b89dddba99a5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/bb/57/bb5732e0babedd24b05555e861b46cce57dbbea5" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/bb/57/bb5732e0babedd24b05555e861b46cce57dbbea5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,6 +225,8 @@
       <workItem from="1633023951988" duration="610000" />
       <workItem from="1633326355289" duration="14022000" />
       <workItem from="1633519525523" duration="647000" />
+      <workItem from="1633580226906" duration="31000" />
+      <workItem from="1633598974160" duration="814000" />
     </task>
     <servers />
   </component>
