@@ -30,7 +30,7 @@ class BorrowPolicy
      */
     public function view(User $user, Borrow $borrow)
     {
-        return $user->hasRole('staff');
+        return $user->hasRole('staff') or $user->hasRole('technical_manager') or $user->hasRole('manager');
     }
 
     /**

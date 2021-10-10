@@ -16,6 +16,8 @@ class BorrowResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'product_id' => $this->product_id,
+            'user_id' => $this->user_id,
             'user' => UserResource::make($this->whenLoaded('user')),
             'product' => ProductResource::make($this->whenLoaded('product')),
             'from_date' => $this->from_date,

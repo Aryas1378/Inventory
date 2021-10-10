@@ -15,20 +15,25 @@ class ManagerController extends Controller
 {
     use HasApiTokens;
 
+    public function allBorrows()
+    {
+        $borrows = Borrow::all();
+        return $this->success(BorrowResource::collection($borrows));
+    }
+
+    public function showBorrow(Borrow $borrow)
+    {
+        return $this->success(new BorrowResource($borrow->load('product')));
+    }
+
     public function submitBorrow(ManangerSubmitBorrowRequest $request, Borrow $borrow)
     {
-        if (is_null($borrow->manager_permission)){
+        if (is_null($borrow->manager_permission) and $borrow->technical_manager_permission){
             $borrow['manager_permission'] = $request->get('manager_permission');
             $borrow->save();
             return $this->success("permission was saved");
         }
-        return $this->error("permission was submitted before by manager");
-    }
-
-    public function showBorrows(Product $product)
-    {
-        $borrows = Borrow::query()->where('product_id', $product->id)->get();
-        return $this->success(BorrowResource::collection($borrows));
+        return $this->error("This action is not valid");
     }
 
 }

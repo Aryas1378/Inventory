@@ -13,20 +13,25 @@ class TechnicalManagerController extends Controller
 {
     use HasApiTokens;
 
+    public function allBorrows()
+    {
+        $borrows = Borrow::all();
+        return $this->success(BorrowResource::collection($borrows));
+    }
+
     public function submitBorrow(TechnicalManagerSubmitBorrowRequest $request, Borrow $borrow)
     {
-        if (is_null($borrow->technical_manager_permission)){
+        if (is_null($borrow->technical_manager_permission) and $borrow->supervisor_permission){
             $borrow['technical_manager_permission'] = $request->get('technical_manager_permission');
             $borrow->save();
             return $this->success("permission was saved");
         }
-        return $this->error("permission was submitted before by technical manager");
+        return $this->error("This action is not valid");
     }
 
-    public function showBorrows(Product $product)
+    public function showBorrow(Borrow $borrow)
     {
-        $borrows = Borrow::query()->where('product_id', $product->id)->get();
-        return $this->success(BorrowResource::collection($borrows));
+        return $this->success(new BorrowResource($borrow->load('product')));
     }
 
 }

@@ -132,7 +132,7 @@ Route::prefix('/admin')->middleware('auth:sanctum')->group(function () {
         ->middleware('can:create,' . UserProduct::class)
         ->name('admin.user-product.store');
 
-    Route::patch('user-product/userProduct', [UserProductController::class, 'update'])
+    Route::patch('user-product/{userProduct}', [UserProductController::class, 'update'])
         ->middleware('can:update,userProduct')
         ->name('admin.user-product.update');
 
@@ -144,16 +144,24 @@ Route::prefix('/admin')->middleware('auth:sanctum')->group(function () {
         ->middleware('can:update,borrow')
         ->name('admin.technical-manager.submitBorrow');
 
-    Route::patch('manager/submit/borrows/{borrow}', [ManagerController::class, 'submitBorrow'])
+    Route::get('manager/borrows', [ManagerController::class, 'allBorrows'])
+        ->middleware('can:viewAny,' . Borrow::class)
+        ->name('admin.technical-manager.allBorrows');
+
+    Route::patch('manager/borrows/{borrow}', [ManagerController::class, 'submitBorrow'])
         ->middleware('can:update,borrow')
-        ->name('admin.technical-manager.submitBorrow');
+        ->name('admin.manager.submitBorrow');
 
-    Route::get('manager/products/{product}/borrows', [ManagerController::class, 'showBorrows'])
-        ->middleware('can:viewAny,' . Borrow::class)
-        ->name('manager.products-borrows.index');
+    Route::get('manager/borrows/borrow', [ManagerController::class, 'showBorrow'])
+        ->middleware('can:viewAny,borrow')
+        ->name('admin.manager.showBorrow');
 
-    Route::get('technical-manager/products/{product}/borrows', [TechnicalManagerController::class, 'showBorrows'])
-        ->middleware('can:viewAny,' . Borrow::class)
-        ->name('manager.products-borrows.index');
+    Route::get('technical-manager/borrows/{borrow}', [TechnicalManagerController::class, 'showBorrow'])
+        ->middleware('can:view,borrow')
+        ->name('admin.technical-manager.showBorrow');
+
+    Route::get('technical-manager/borrows', [TechnicalManagerController::class, 'allBorrows'])
+        ->middleware('can:viewAny,'. Borrow::class)
+        ->name('admin.technical-manager.allBorrows');
 
 });
