@@ -14,7 +14,10 @@ class DropStatusIdInUserProductTable extends Migration
     public function up()
     {
         Schema::table('user_product', function (Blueprint $table) {
-            $table->dropForeign(['status_id']);
+            if (env('APP_ENV') != 'testing') {
+                $table->dropForeign(['status_id']);
+            }
+
             $table->dropColumn('status_id');
         });
     }

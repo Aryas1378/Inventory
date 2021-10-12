@@ -14,8 +14,8 @@ class AddCodeAndStatusIdColumnsToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->foreignId('status_id')->default(1)->constrained('statuses');
-            $table->string('code');
+            $table->foreignId('status_id')->nullable()->constrained('statuses');
+            $table->string('code')->nullable();
         });
     }
 
@@ -27,6 +27,8 @@ class AddCodeAndStatusIdColumnsToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('code');
+
             $table->dropForeign(['status_id']);
             $table->dropColumn('status_id');
         });

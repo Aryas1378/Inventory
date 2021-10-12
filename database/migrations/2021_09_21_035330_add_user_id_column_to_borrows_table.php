@@ -14,7 +14,7 @@ class AddUserIdColumnToBorrowsTable extends Migration
     public function up()
     {
         Schema::table('borrows', function (Blueprint $table) {
-            $table->foreignId('user_id')->after('product_id')->constrained('users');
+            $table->foreignId('user_id')->nullable()->after('product_id')->constrained('users');
         });
     }
 

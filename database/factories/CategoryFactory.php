@@ -22,12 +22,8 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $role = Role::factory()->create();
         return [
             'name' => $this->faker->name,
-            'email' => $this->faker->unique->safeemail,
-            'password' =>bcrypt($this->faker->password),
-            'role_id' => $role->id,
         ];
     }
 }

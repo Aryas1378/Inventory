@@ -7,11 +7,13 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class CategoryTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *
@@ -19,6 +21,7 @@ class CategoryTest extends TestCase
      */
     public function test_example()
     {
+//        Artisan::call("db:seed --class ")
         $response = $this->get('/');
 
         $response->assertStatus(200);
@@ -36,12 +39,15 @@ class CategoryTest extends TestCase
         /** @var User $admin */
         $admin = User::factory()->create();
         $admin->roles()->attach($role->id);
-        $this->actingAs($admin, 'api');
+        $this->actingAs($admin, 'sanctum');
 
-        $response = $this->postJson(route('admin.categories.store'),
+        $response = $this->postJson(
+            route('admin.categories.store'),
             [
                 'name' => $category->name,
-        ]);
+            ]
+        );
+
 
         $response->assertStatus(200);
         $response->assertSee($category->name);

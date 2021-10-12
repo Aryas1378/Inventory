@@ -15,7 +15,11 @@ class DropColumnsEmailVerifiedAtAndTwoFactorSecretAndTwoFactorRecoveryCodesInUse
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('email_verified_at');
+        });
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('two_factor_secret');
+        });
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('two_factor_recovery_codes');
         });
     }

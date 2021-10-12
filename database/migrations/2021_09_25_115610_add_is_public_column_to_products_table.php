@@ -14,7 +14,7 @@ class AddIsPublicColumnToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string("is_public");
+            $table->string("is_public")->nullable();
         });
     }
 

@@ -14,7 +14,10 @@ class DropStatusIdColumnFromProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['status_id']);
+            if (env('APP_ENV') != 'testing') {
+                $table->dropForeign(['status_id']);
+            }
+
             $table->dropColumn('status_id');
         });
     }
@@ -27,7 +30,7 @@ class DropStatusIdColumnFromProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->foreignId('status_id');
+            $table->foreignId('status_id')->constrained();
         });
     }
 }
