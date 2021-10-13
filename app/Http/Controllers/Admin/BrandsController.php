@@ -42,6 +42,8 @@ class BrandsController extends Controller
     {
         $brand->update(['name' => $request->get('name')]);
 
+        Brand::create($request->all());
+
         Log::query()->create([
             'user_id' => auth()->id(),
             'action' => 'update',
@@ -53,8 +55,7 @@ class BrandsController extends Controller
 
     public function destroy(Brand $brand)
     {
-        if ($brand->products()->count())
-        {
+        if ($brand->products()->count()) {
             return $this->error("this brand has some products");
         }
 

@@ -48,9 +48,31 @@ class CategoryTest extends TestCase
             ]
         );
 
-
         $response->assertStatus(200);
         $response->assertSee($category->name);
 
     }
+
+    public function test_user_can_not_create_category()
+    {
+        $role = Role::factory()->create([
+            'name' => 'user',
+        ]);
+
+        $category = Category::factory()->create();
+
+        /** @var User $user */
+        $user = User::factory()->create();
+        $user->roles()->attach($role->id);
+        $this->actingAs($user, 'sanctum');
+
+        $response = $this->postJson(
+            route('admin.categories.store'),
+            [
+                'name' => $category->name,
+        ]);
+        $response->assertSee('unauthorized');
+
+    }
+
 }

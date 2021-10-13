@@ -24,6 +24,25 @@
   <component name="ChangeListManager">
     <list default="true" id="6cdd3268-6f02-4f33-896c-5028389970b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ApiTokenPermissionsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/AuthenticationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/BrowserSessionsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/CategoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CategoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/CreateApiTokenTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/DeleteAccountTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/DeleteApiTokenTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/EmailVerificationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/PasswordConfirmationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/PasswordResetTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ProfileInformationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/RegistrationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/TwoFactorAuthenticationSettingsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/UpdatePasswordTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +66,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/app/Policies/CategoryPolicy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/routes/api.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/routes/admin.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/BrandsController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Http/Requests/UserRegisterRequest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/routes/admin.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Http/Kernel.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/routes/api.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
@@ -197,7 +216,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/DiavrProject" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -208,7 +227,19 @@
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Profile" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.BrandTest.test_a_admin_user_can_see_brands">
+    <configuration name="BrandTest.test_a_admin_user_can_see_brands" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\BrandTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/BrandTest.php" method="test_a_admin_user_can_see_brands" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="BrandTest.test_only_admin_can_create_brand" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\BrandTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/BrandTest.php" method="test_only_admin_can_create_brand" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="BrandTest.test_update_brand_by_admin" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\BrandTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/BrandTest.php" method="test_update_brand_by_admin" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -218,6 +249,18 @@
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/tests" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.BrandTest.test_a_admin_user_can_see_brands" />
+        <item itemvalue="PHPUnit.BrandTest.test_only_admin_can_create_brand" />
+        <item itemvalue="PHPUnit.BrandTest.test_update_brand_by_admin" />
+        <item itemvalue="PHPUnit.tests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -262,6 +305,7 @@
       <workItem from="1633942966453" duration="5344000" />
       <workItem from="1633954984834" duration="975000" />
       <workItem from="1634031500164" duration="764000" />
+      <workItem from="1634100265322" duration="17336000" />
     </task>
     <servers />
   </component>
@@ -284,10 +328,42 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="674" y="232" key="FileChooserDialogImpl" timestamp="1633936324958">
+    <state x="311" y="-14" key="#CLI_Interpreters" timestamp="1634106120821">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="674" y="232" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1633936324958" />
+    <state x="311" y="-14" key="#CLI_Interpreters/0.0.1920.1080@0.0.1920.1080" timestamp="1634106120821" />
+    <state x="462" y="17" key="#PHP" timestamp="1634106122542">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="462" y="17" key="#PHP/0.0.1920.1080@0.0.1920.1080" timestamp="1634106122542" />
+    <state x="581" y="-32" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1634104437960">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="581" y="-32" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1634104437960" />
+    <state x="498" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1634111850651">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="498" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1634111850651" />
+    <state x="610" y="168" width="606" height="665" key="FileChooserDialogImpl" timestamp="1634101472090">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="610" y="168" width="606" height="665" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1634101472090" />
+    <state width="1856" height="408" key="GridCell.Tab.0.bottom" timestamp="1634129575828">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1856" height="408" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1634129575828" />
+    <state width="1856" height="408" key="GridCell.Tab.0.center" timestamp="1634129575826">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1856" height="408" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1634129575826" />
+    <state width="1856" height="408" key="GridCell.Tab.0.left" timestamp="1634129575825">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1856" height="408" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1634129575825" />
+    <state width="1856" height="408" key="GridCell.Tab.0.right" timestamp="1634129575827">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1856" height="408" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1634129575827" />
     <state x="359" y="77" key="SettingsEditor" timestamp="1633933078238">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -296,9 +372,12 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="583" y="94" width="753" height="891" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1633951376812" />
-    <state x="623" y="223" width="840" height="678" key="search.everywhere.popup" timestamp="1633951292599">
+    <state x="623" y="223" width="840" height="678" key="search.everywhere.popup" timestamp="1634123283979">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="223" width="840" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1633951292599" />
+    <state x="623" y="223" width="840" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1634123283979" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/inventory@tests.xml" NAME="tests Coverage Results" MODIFIED="1634106125404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
