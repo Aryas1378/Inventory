@@ -18,7 +18,7 @@ class CreateBorrowsTable extends Migration
             $table->foreignId('product_id')->constrained('products');
             $table->date('from_date');
             $table->date('to_date');
-            $table->string('supervisor_permission');
+            $table->string('supervisor_permission')->nullable();
             $table->timestamps();
         });
     }
