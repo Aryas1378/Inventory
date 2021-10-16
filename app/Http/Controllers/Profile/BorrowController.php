@@ -29,7 +29,6 @@ class BorrowController extends Controller
 
     public function store(BorrowStoreRequest $request)
     {
-
         if ($request->get('is_public') == 'yes' and Product::isAvailable($request->get('product_id'))) {
             $borrow = Borrow::query()->create([
                 'user_id' => auth()->id(),
@@ -38,10 +37,11 @@ class BorrowController extends Controller
                 'to_date' => $request->get('to_date'),
             ]);
 
-            Product::query()->find($request->get('product_id'))->update(
-                array(
-                    'status_id' => Product::loaned
-                ));
+            Product::query()->where('product_id', $request->get('product_id'))
+                ->update([
+                    'status_id' => Product::loaned,
+            ]);
+
 
             Log::query()->create([
                 'user_id' => auth()->id(),
@@ -50,6 +50,7 @@ class BorrowController extends Controller
             ]);
 
         } elseif (UserProduct::isAvailable(auth()->id(), $request->get('product_id'))) {
+
             $borrow = Borrow::query()->create([
                 'user_id' => auth()->id(),
                 'product_id' => $request->get('product_id'),

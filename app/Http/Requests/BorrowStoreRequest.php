@@ -24,7 +24,7 @@ class BorrowStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'from_date' => 'required',
+
             'to_date' => 'required',
             'product_id' => 'required',
             'is_public' => 'required',

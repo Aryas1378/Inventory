@@ -42,8 +42,9 @@ class Product extends Model
 
     public static function isAvailable($id)
     {
-        $product = Product::query()->where('id', $id)->get();
-        if ($product->status_id == Product::available){
+        $product = Product::query()->where('id', '=',$id)->get();
+
+        if ($product->toArray()){
             return true;
         }
         return false;

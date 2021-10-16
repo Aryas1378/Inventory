@@ -16,7 +16,7 @@ Route::prefix('/')->middleware('auth:sanctum')->group(function () {
 
     Route::get('borrows/{borrow}', [BorrowController::class, 'show'])
         ->middleware('can:view,borrow')
-        ->name('profile.borrows.index');
+        ->name('profile.borrows.show');
 
     Route::post('borrows', [BorrowController::class, 'store'])
         ->middleware('can:create,' . Borrow::class)

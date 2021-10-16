@@ -18,8 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('brand_id')->constrained('brands');
-            $table->string('code');
-            $table->foreign('status_id');
+            $table->foreignId('status_id')->constrained('statuses');
+            $table->integer('code');
+            $table->string("is_public");
             $table->timestamps();
         });
     }
