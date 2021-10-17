@@ -39,5 +39,6 @@ class ProductFactory extends Factory
             'is_public' => "yes",
 
         ];
+
     }
 }

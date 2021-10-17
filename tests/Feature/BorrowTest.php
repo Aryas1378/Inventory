@@ -4,6 +4,9 @@ namespace Tests\Feature;
 
 use App\Models\Borrow;
 use App\Models\Product;
+use App\Models\Status;
+use App\Models\User;
+use App\Models\UserProduct;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -59,6 +62,24 @@ class BorrowTest extends TestCase
         $response->assertSee("not valid request");
     }
 
+    public function test_staff_create_not_public_borrow()
+    {
+        $product = Product::factory()->create();
+
+        $user = $this->registerUser('staff');
+
+        $this->actingAs($user, 'sanctum');
+
+        $response = $this->postJson(route('profile.borrows.store'), [
+
+            'product_id' => $product->id,
+            'to_date' => Carbon::tomorrow(),
+            'is_public' => 'no',
+        ]);
+        $response->assertSee("This product is not available for you");
+        $response->assertStatus(400);
+    }
+
     public function test_staff_create_borrow()
     {
         $product = Product::factory()->create();
@@ -76,6 +97,38 @@ class BorrowTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee("data");
+
+    }
+
+    public function test_staff_can_create_user_product()
+    {
+
+        $staff = $this->registerUser('staff');
+
+        $product = Product::factory()->create([
+            'is_publish' => "no",
+        ]);
+
+        $status = Status::factory()->create();
+
+        $user_product = UserProduct::query()->create([
+
+            'user_id' => $staff->id,
+            'product_id' => $product->id,
+            'code' => "10",
+            'from_date' => Carbon::now(),
+            'status_id' => $status->id,
+
+        ]);
+
+        $response = $this->postJson(route('profile.borrows.store'), [
+
+            'product_id' => $product->id,
+            'to_date' => Carbon::tomorrow(),
+            'is_public' => 'no',
+        ]);
+
+        $response->assertSee(200);
 
     }
 

@@ -24,18 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6cdd3268-6f02-4f33-896c-5028389970b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Profile/BorrowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Profile/BorrowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/BorrowStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/BorrowStoreRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_18_162133_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_09_18_162133_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_19_042245_create_statuses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_09_17_042245_create_statuses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_19_042915_add_status_id_column_to_products_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_19_105102_drop_column_code_from_products_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_25_084646_drop_status_id_column_from_products_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_25_085212_add_count_number_column_to_products_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_20_111431_create_user_product_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_09_20_111431_create_user_product_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/BorrowTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/BorrowTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -302,7 +291,9 @@
       <workItem from="1634100265322" duration="18431000" />
       <workItem from="1634300907817" duration="2838000" />
       <workItem from="1634361241320" duration="22043000" />
-      <workItem from="1634401480624" duration="5577000" />
+      <workItem from="1634401480624" duration="7489000" />
+      <workItem from="1634445906810" duration="1191000" />
+      <workItem from="1634450954516" duration="412000" />
     </task>
     <servers />
   </component>
@@ -369,10 +360,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="583" y="94" width="753" height="891" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1634373068169" />
-    <state x="623" y="223" width="840" height="678" key="search.everywhere.popup" timestamp="1634404305345">
+    <state x="623" y="223" width="840" height="678" key="search.everywhere.popup" timestamp="1634451453108">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="223" width="840" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1634404305345" />
+    <state x="623" y="223" width="840" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1634451453108" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/inventory@tests.xml" NAME="tests Coverage Results" MODIFIED="1634106125404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

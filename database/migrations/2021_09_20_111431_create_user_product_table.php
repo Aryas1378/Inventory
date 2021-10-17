@@ -19,7 +19,7 @@ class CreateUserProductTable extends Migration
             $table->foreignId('product_id')->constrained('products');
             $table->string('code');
             $table->date('from_date');
-            $table->date('to_date');
+            $table->date('to_date')->nullable();
             $table->foreignId('status_id')->constrained('statuses');
             $table->timestamps();
         });
